@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 108, 99, 255;
+    --primary-dark: 90, 82, 224;
+    --primary-light: 143, 137, 255;
+    --secondary: 255, 101, 132;
+    --secondary-dark: 229, 90, 120;
+    --secondary-light: 255, 140, 163;
+    --accent: 67, 233, 123;
+    --accent-dark: 56, 197, 104;
+    --accent-light: 110, 255, 170;
+    --background: 249, 250, 251;
+    --foreground: 17, 24, 39;
+    --card: 255, 255, 255;
+    --card-foreground: 17, 24, 39;
+    --border: 229, 231, 235;
+    --input: 229, 231, 235;
+    --ring: 108, 99, 255;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --primary: 143, 137, 255;
+    --primary-dark: 108, 99, 255;
+    --primary-light: 178, 173, 255;
+    --secondary: 255, 140, 163;
+    --secondary-dark: 255, 101, 132;
+    --secondary-light: 255, 179, 194;
+    --accent: 110, 255, 170;
+    --accent-dark: 67, 233, 123;
+    --accent-light: 154, 255, 204;
+    --background: 31, 41, 55;
+    --foreground: 249, 250, 251;
+    --card: 55, 65, 81;
+    --card-foreground: 249, 250, 251;
+    --border: 75, 85, 99;
+    --input: 75, 85, 99;
+    --ring: 143, 137, 255;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-primary/80;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-secondary/80;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-accent:hover {
+    @apply bg-accent/80;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary font-medium py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-primary text-white;
+  }
+  
+  .card {
+    @apply bg-card text-card-foreground rounded-lg shadow-md overflow-hidden;
+  }
+  
+  .input {
+    @apply w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-primary-light text-primary-dark;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary-light text-secondary-dark;
+  }
+  
+  .badge-accent {
+    @apply bg-accent-light text-accent-dark;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Product card hover effects */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary-light));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary));
+}
